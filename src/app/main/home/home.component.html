@@ -1,2 +1,29 @@
-
-
+<button class="btn btn-success mb-2">Crear empleado</button>
+<div class="table-responsive">
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido1</th>
+    <th scope="col">Apellido2</th>
+    <th scope="col">Dni</th>
+    <th scope="col">Domicilio</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let empleado of empleados">
+    <th>{{empleado.id}}</th>
+    <td>{{empleado.nombre}}</td>
+    <td>{{empleado.apellido1}}</td>
+    <td>{{empleado.apellido2}}</td>
+    <td>{{empleado.dni}}</td>
+    <td>{{empleado.domicilio}}</td>
+    <td class="text-center">
+      <img class="mr-3" style="width: 18px" src="../../../assets/iconos/editar.png" alt="Editar">
+      <img (click)="eliminarEmpleado(empleado.id)" style="width: 20px" src="../../../assets/iconos/borrar.png" alt="Editar">
+    </td>
+  </tbody>
+</table>
+</div>
