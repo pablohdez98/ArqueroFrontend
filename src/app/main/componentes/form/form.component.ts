@@ -31,10 +31,10 @@ export class FormComponent implements OnInit {
   private setForm() {
     this.empleadoForm = this.formBuilder.group({
       nombre: [this.updateEmpleado ? this.updateEmpleado.nombre : '', [Validators.required, Validators.minLength(3)]],
-      apellido1: [this.updateEmpleado ? this.updateEmpleado.apellido1 : '', Validators.required],
-      apellido2: [this.updateEmpleado ? this.updateEmpleado.apellido2 : '', Validators.required],
+      apellido1: [this.updateEmpleado ? this.updateEmpleado.apellido1 : '', [Validators.required, Validators.minLength(3)]],
+      apellido2: [this.updateEmpleado ? this.updateEmpleado.apellido2 : '', [Validators.required, Validators.minLength(3)]],
       dni: [this.updateEmpleado ? this.updateEmpleado.dni : '', [Validators.required, this.verifyDNI()]],
-      domicilio: [this.updateEmpleado ? this.updateEmpleado.domicilio : '', Validators.required],
+      domicilio: [this.updateEmpleado ? this.updateEmpleado.domicilio : '', [Validators.required, Validators.minLength(3)]],
     });
   }
 

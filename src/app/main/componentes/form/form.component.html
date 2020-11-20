@@ -10,7 +10,7 @@
             Este campo es obligatorio.
           </small>
           <small class="text-danger" *ngIf="FormControl.nombre.errors.minlength">
-            Este campo minimo 3 caracteres.
+            Mínimo 3 caracteres.
           </small>
         </div>
       </div>
@@ -22,6 +22,9 @@
           <small class="text-danger" *ngIf="FormControl.apellido1.errors.required">
             Este campo es obligatorio.
           </small>
+          <small class="text-danger" *ngIf="FormControl.apellido1.errors.minlength">
+            Mínimo 3 caracteres.
+          </small>
         </div>
       </div>
 
@@ -31,6 +34,9 @@
         <div *ngIf="FormControl.apellido2.invalid && FormControl.apellido2.touched">
           <small class="text-danger" *ngIf="FormControl.apellido2.errors.required">
             Este campo es obligatorio.
+          </small>
+          <small class="text-danger" *ngIf="FormControl.apellido2.errors.minlength">
+            Mínimo 3 caracteres.
           </small>
         </div>
       </div>
@@ -54,6 +60,9 @@
         <div *ngIf="FormControl.domicilio.invalid && FormControl.domicilio.touched">
           <small class="text-danger" *ngIf="FormControl.domicilio.errors.required">
             Este campo es obligatorio.
+          </small>
+          <small class="text-danger" *ngIf="FormControl.domicilio.errors.minlength">
+            Mínimo 3 caracteres.
           </small>
         </div>
       </div>
