@@ -1,0 +1,68 @@
+<div class="container bg-gray py-3">
+  <h2 class="mb-3">{{(!updateEmpleado)?'Añadir':'Actualizar'}} empleado</h2>
+  <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit(empleadoForm.value, (updateEmpleado)?updateEmpleado.id:'')" class="mx-2">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre" class="form-control" type="text" id="nombre" maxlength="25" minlength="3" required>
+        <div *ngIf="FormControl.nombre.invalid && FormControl.nombre.touched">
+          <small class="text-danger" *ngIf="FormControl.nombre.errors.required">
+            Este campo es obligatorio.
+          </small>
+          <small class="text-danger" *ngIf="FormControl.nombre.errors.minlength">
+            Este campo minimo 3 caracteres.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="apellido1">Apellido1</label>
+        <input formControlName="apellido1" class="form-control" type="text" id="apellido1" maxlength="25" minlength="3" required>
+        <div *ngIf="FormControl.apellido1.invalid && FormControl.apellido1.touched">
+          <small class="text-danger" *ngIf="FormControl.apellido1.errors.required">
+            Este campo es obligatorio.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="apellido2">Apellido2</label>
+        <input formControlName="apellido2" class="form-control" type="text" id="apellido2" maxlength="25" minlength="3" required>
+        <div *ngIf="FormControl.apellido2.invalid && FormControl.apellido2.touched">
+          <small class="text-danger" *ngIf="FormControl.apellido2.errors.required">
+            Este campo es obligatorio.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="dni">Dni</label>
+        <input formControlName="dni" class="form-control" type="text" id="dni" maxlength="9" minlength="9" pattern="[0-9]{8}[A-Za-z]" required>
+        <div *ngIf="FormControl.dni.invalid && FormControl.dni.touched">
+          <small class="text-danger" *ngIf="FormControl.dni.errors.required">
+            Este campo es obligatorio.
+          </small>
+          <small class="text-danger" *ngIf="FormControl.dni.errors.dni && !FormControl.dni.errors.required">
+            El DNI tiene que ser válido.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-9">
+        <label for="domicilio">Domicilio</label>
+        <input formControlName="domicilio" class="form-control" type="text" id="domicilio" maxlength="50" minlength="3" required>
+        <div *ngIf="FormControl.domicilio.invalid && FormControl.domicilio.touched">
+          <small class="text-danger" *ngIf="FormControl.domicilio.errors.required">
+            Este campo es obligatorio.
+          </small>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center mx-auto mt-3">
+        <button type="submit" class="btn btn-success mr-4 px-3">{{(!updateEmpleado)?'Añadir':'Actualizar'}} empleado</button>
+        <button (click)="cancelForm()" type="button" class="btn btn-danger">Cerrar formulario</button>
+      </div>
+
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
-<button class="btn btn-success mb-2">Crear empleado</button>
+<button class="btn btn-info mb-2" (click)="formCreateEmpleado()">Crear empleado</button>
 <div class="table-responsive">
-<table class="table">
+<table *ngIf="empleados" class="table">
   <thead class="thead-dark">
   <tr>
     <th scope="col">ID</th>
@@ -21,9 +21,13 @@
     <td>{{empleado.dni}}</td>
     <td>{{empleado.domicilio}}</td>
     <td class="text-center">
-      <img class="mr-3" style="width: 18px" src="../../../assets/iconos/editar.png" alt="Editar">
+      <img (click)="setEmpleadoToUpdate(empleado)" class="mr-3" style="width: 18px" src="../../../assets/iconos/editar.png" alt="Editar">
       <img (click)="eliminarEmpleado(empleado.id)" style="width: 20px" src="../../../assets/iconos/borrar.png" alt="Editar">
     </td>
   </tbody>
 </table>
+</div>
+
+<div id="form-empleado" class="mx-md-5 border border-1 rounded mx-1" *ngIf="formEmpleado">
+  <app-form [updateEmpleadoObservable]="empleadoToUpdate" (cancelFormView)="hideForm()"></app-form>
 </div>
